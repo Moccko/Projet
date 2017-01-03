@@ -1,4 +1,4 @@
 Projet
 ======
 
-A Symfony project created on December 24, 2016, 7:28 pm.
+E-Marketing WEB project using the frameworks Symfony 2.5.3 and Twitter Bootstrap. The database used for the project is owned by the UIT, we use the API of Amazon too.
