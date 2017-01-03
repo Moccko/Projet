@@ -1,0 +1,61 @@
+catalogue_homepage:
+    path:     /
+    defaults: { _controller: CatalogueBundle:Home:index }
+
+album_index:
+    path:     /Album/Page{page}
+    defaults: { _controller: CatalogueBundle:Album:index, page: 1 }
+    requirements: { page: ([1-9])+\d* }
+
+album_show:
+    path:     /Album/{id}
+    defaults: { _controller: CatalogueBundle:Album:show }
+    requirements: { id: ([1-9])+\d* }
+
+album_image_show:
+    path:     /Album/Image{id}
+    defaults: { _controller: CatalogueBundle:Album:showImage }
+    requirements: { id: ([1-9])+\d* }
+
+composition_index:
+    path:     /Composition/
+    defaults: { _controller: CatalogueBundle:Composition:index }
+
+composition_show:
+    path:     /Composition/{id}
+    defaults: { _controller: CatalogueBundle:Composition:show }
+
+composer_index:
+    path:     /Compositeur/Page{page}
+    defaults: { _controller: CatalogueBundle:Composer:index, page: 1 }
+    requirements: { page: ([1-9])+\d* }
+
+composer_show:
+    path:     /Compositeur/{id}
+    defaults: { _controller: CatalogueBundle:Composer:show }
+    requirements: { id: ([1-9])+\d* }
+
+image_show:
+    path:     /Image/{classe}/{id}
+    defaults: { _controller: CatalogueBundle:Image:index }
+
+sound_play:
+    path:     /Sound/{id}
+    defaults: { _controller: CatalogueBundle:Sound:index }
+
+cart_index:
+    path:     /Cart/
+    defaults: { _controller: CatalogueBundle:Cart:index }
+
+cart_empty:
+    path:     /Cart/Empty
+    defaults: { _controller: CatalogueBundle:Cart:empty }
+
+album_add_to_cart:
+    path:     /Cart/Add/{id}
+    defaults: { _controller: CatalogueBundle:Cart:addToCart }
+    requirements: { id: ([1-9])+\d* }
+
+about_index:
+    path:     /About/
+    defaults: { _controller: CatalogueBundle:About:index }

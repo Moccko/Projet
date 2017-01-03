@@ -1,0 +1,40 @@
+Disque:
+    type: entity
+    table: Disque
+    indexes:
+        IDX_F200E9945B515BDB:
+            columns:
+                - Code_Album
+    id:
+        codeDisque:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: Code_Disque
+            generator:
+                strategy: IDENTITY
+    fields:
+        référenceAlbum:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            column: Référence_Album
+        référenceDisque:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: Référence_Disque
+    manyToOne:
+        codeAlbum:
+            targetEntity: Album
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Code_Album:
+                    referencedColumnName: Code_Album
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

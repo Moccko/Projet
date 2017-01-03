@@ -1,0 +1,39 @@
+Achat:
+    type: entity
+    table: Achat
+    indexes:
+        IDX_E768AB52A1866919:
+            columns:
+                - Code_Enregistrement
+        IDX_E768AB52D7B589C1:
+            columns:
+                - Code_Abonné
+    id:
+        codeAchat:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: Code_Achat
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        codeEnregistrement:
+            targetEntity: Enregistrement
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Code_Enregistrement:
+                    referencedColumnName: Code_Morceau
+            orphanRemoval: false
+        codeAbonné:
+            targetEntity: Abonné
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Code_Abonné:
+                    referencedColumnName: Code_Abonné
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,20 @@
+Genre:
+    type: entity
+    table: Genre
+    id:
+        codeGenre:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: Code_Genre
+            generator:
+                strategy: IDENTITY
+    fields:
+        libelléAbrégé:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            column: Libellé_Abrégé
+    lifecycleCallbacks: {  }

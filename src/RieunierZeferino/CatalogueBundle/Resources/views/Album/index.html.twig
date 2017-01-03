@@ -1,0 +1,72 @@
+{% extends "CatalogueBundle:Album:layout.html.twig" %}
+
+{% block title %}Albums{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <ul class="pagination">
+            {% for lettre in 'a'..'z' %}
+                <li>
+                    <a href="{{ path('album_index') }}">{{ lettre }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row col-lg-12">
+        {% set compteur = 1 %}
+        {% for album in listAlbums %}
+            {#<a href="{{ path('album_show', {'id': album.codeAlbum}) }}">#}
+            {#<div class="col-xs-6 col-md-2" style="height: 20em;">#}
+            {#<img src="{{ path('image_show', {'classe': 'Album', 'id': album.codeAlbum}) }}"#}
+            {#class="img-responsive" height="100px"/>#}
+            {#<legend>{{ album.titreAlbum }}</legend>#}
+            {#</div>#}
+            {#<div class="clearfix visible-xs"></div>#}
+            {#</a>#}
+            <div class="col-md-2 col-sm-3 col-xs-4">
+                <div class="thumbnail" style="padding: 0">
+                    <a href="{{ path('album_show', {'id': album.codeAlbum}) }}">
+                        <img src="{{ path('image_show', {'classe': 'Album', 'id': album.codeAlbum}) }}"
+                             class="img-responsive" width="100%">
+                    </a>
+                    <div class="caption">
+                        <h4 class="">{{ album.titreAlbum }}</h4>
+                        <a href="{{ path('album_add_to_cart', {'id': album.codeAlbum}) }}"
+                           class="btn btn-primary btn-xs pull-right" role="button">Ajouter au panier</a>
+                        <a href="{{ path('album_show', {'id': album.codeAlbum}) }}" class="btn btn-default btn-xs"
+                           role="button"><span
+                                    class="glyphicon glyphicon-info-sign"></span> </a>
+                    </div>
+                </div>
+            </div>
+            {% if compteur is divisibleby(6) %}
+                <div class="clearfix"></div>
+            {% endif %}
+            {% set compteur=compteur+1 %}
+        {% endfor %}
+    </div>
+    <ul class="pager col-lg-12">
+        <li class="previous
+        {% if page <= 1 %}
+            disabled "><a><span class="glyphicon glyphicon-chevron-left"></span> Previous</a>
+            {% else %}
+                "><a href="
+            {{ path('album_index', {'page': page - 1 }) }}"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
+            {% endif %}
+        </li>
+        <li class="next
+        {% if page >= max %}
+            disabled
+        {% endif %}
+        "><a href="{{ path('album_index', {'page': page + 1 }) }}">Next <span
+                        class="glyphicon glyphicon-chevron-right"></span></a></li>
+    </ul>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Panel body ...
+        </div>
+        <div class="panel-footer">
+            Panel footer
+        </div>
+    </div>
+{% endblock %}

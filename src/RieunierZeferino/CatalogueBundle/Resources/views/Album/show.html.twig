@@ -1,0 +1,30 @@
+{% extends "CatalogueBundle:Album:layout.html.twig" %}
+
+{% block title %}Album n°{{ album.codeAlbum }}{% endblock %}
+
+{% block body %}
+    <ul class="breadcrumb">
+        <li><a href="{{ path('catalogue_homepage') }}">Accueil</a></li>
+        <li><a href="{{ path('album_index') }}">Album</a></li>
+        <li class="active">{{ album.titreAlbum }}</li>
+    </ul>
+    <div class="media">
+        <div class="media-left">
+            <img src="{{ path('image_show', {'classe': 'Album', 'id': album.codeAlbum}) }}" width="200px"
+                 height="200px"/>
+        </div>
+        <div class="media-body">
+            <h1 class="media-heading">{{ album.titreAlbum }}
+                <small>{{ album.annéeAlbum }}</small>
+            </h1>
+            {#{% for  %}#}
+            {#<h2></h2>#}
+            {#{%  endfor %}#}
+            <a class="btn btn-primary" href="{{ path('album_add_to_cart', {'id': album.codeAlbum}) }}">
+                <span class="glyphicon glyphicon-tags"></span> &nbsp;Ajouter au panier
+            </a>
+        </div>
+    </div>
+
+
+{% endblock %}

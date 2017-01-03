@@ -1,0 +1,12 @@
+{% extends "@Catalogue/Album/layout.html.twig" %}
+
+{% block title %}CatalogueBundle:Album:show{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Album:show page</h1>
+    {% if image is null %}
+        <p>L'image n'est pas définie !</p>
+    {% else %}
+        <img src="{{ image }}"/>
+    {% endif %}
+{% endblock %}

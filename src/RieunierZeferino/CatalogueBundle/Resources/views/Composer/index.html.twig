@@ -1,0 +1,30 @@
+{% extends "CatalogueBundle:Composer:layout.html.twig" %}
+
+{% block title %}CatalogueBundle:Composer:index{% endblock %}
+
+{% block body %}
+    <div class="content col-lg-12">
+        {% for composer in listComposers %}
+            <div class="col-lg-2">
+                <img src="{{ path('image_show', {'classe': 'Musicien', 'id': composer.codeMusicien}) }}" class="img-thumbnail" width="100%" height="100%"/>
+                <legend>{{ composer.nomMusicien }}</legend>
+            </div>
+        {% endfor %}
+    </div>
+    <ul class="pager col-lg-12">
+        <li class="previous
+        {% if page <= 1 %}
+            disabled "><a><span class="glyphicon glyphicon-chevron-left"></span> Previous</a>
+            {% else %}
+                "><a href="
+            {{ path('album_index', {'page': page - 1 }) }}"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
+            {% endif %}
+        </li>
+        <li class="next
+        {% if page >= max %}
+            disabled
+        {% endif %}
+        "><a href="{{ path('album_index', {'page': page + 1 }) }}">Next <span
+                        class="glyphicon glyphicon-chevron-right"></span></a></li>
+    </ul>
+{% endblock %}

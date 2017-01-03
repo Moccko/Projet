@@ -1,0 +1,11 @@
+{% extends "CatalogueBundle:Composition:layout.html.twig" %}
+
+{% block title %}Composition n°{{ id }}{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Composition:show page</h1>
+    <audio controls duration>
+        <source src="{{ path('sound_play', {'id':id}) }}">
+        Cet extrait ne peut pas &ecirc;tre &eacute;cout&eacute;
+    </audio>
+{% endblock %}
